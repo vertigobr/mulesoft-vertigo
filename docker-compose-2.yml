@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  mule-esb:
+ #   image: vertigo/mule
+    build:
+      context: .
+    ports:
+      - 8081:8081
+    volumes:
+      - ./apps:/opt/mule/apps
+    
