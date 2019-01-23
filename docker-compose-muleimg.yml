@@ -1,0 +1,22 @@
+version: 3
+services:
+  mule-esb:
+    image: vertigo/mule
+    ports:
+      - 8888
+      
+    volumes:
+      - mule-apps:  
+      - mule-domains:
+      - mule-conf:
+      - mule-logs:  
+      - mule-patches:
+      - mule-dotmule:
+         
+volumes:
+  mule-apps:
+  mule-domains:
+  mule-conf:
+  mule-logs:
+  mule-patches:
+  mule-dotmule:    
