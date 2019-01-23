@@ -1,3 +1,6 @@
+#
+# Este compose é para construção e execução local do container
+#
 version: '3'
 
 services:

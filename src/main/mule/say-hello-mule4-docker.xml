@@ -4,7 +4,7 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f3f51c6a-463a-4cca-85bc-575fa8069236" basePath="/test" >
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f3f51c6a-463a-4cca-85bc-575fa8069236" basePath="/" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<flow name="say-hello-mule4-dockerFlow" doc:id="fab55560-f415-48f6-8e30-c882ba1b0dcc" >
