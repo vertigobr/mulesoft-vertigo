@@ -27,6 +27,7 @@ VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_H
 # Define working directory.
 WORKDIR ${MULE_HOME}
 
+# "say-hello" endpoint
 EXPOSE 8081
 
 HEALTHCHECK CMD curl --fail http://localhost:8081/hello || exit 1 
