@@ -38,6 +38,13 @@ Os volumes definidos nesta imagem são:
 | /opt/mule/conf    | Configuration directory               |
 | /opt/mule/logs    | Logs directory                        |
 
+## Kompose
+
+Podemos usar o Kompose para gerar os YAMLs de deployment a partir do arquivo `docker-compose-muleimg.yml`:
+
+```sh
+kompose convert -f docker-compose-muleimg.yml
+```
 
 ## Créditos
 
