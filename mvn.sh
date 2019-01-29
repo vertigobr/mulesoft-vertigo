@@ -1,3 +1,4 @@
+#!/bin/bash
 docker run --rm -ti \
   -v $(pwd):/opt/app \
   -w /opt/app \
