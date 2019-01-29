@@ -3,7 +3,7 @@ services:
   mule-esb:
     image: vertigo/mule
     ports:
-      - 8081
+      - 8888
       
     volumes:
       - mule-apps:/opt/mule/apps
