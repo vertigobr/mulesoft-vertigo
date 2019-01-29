@@ -10,12 +10,18 @@
 
 
     <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+        <!-->
         <RollingFile name="file" fileName="${sys:mule.home}${sys:file.separator}logs${sys:file.separator}say-hello-mule3-docker.log" 
                  filePattern="${sys:mule.home}${sys:file.separator}logs${sys:file.separator}say-hello-mule3-docker-%i.log">
             <PatternLayout pattern="%d [%t] %-5p %c - %m%n" />
             <SizeBasedTriggeringPolicy size="10 MB" />
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>
+        -->
     </Appenders>
     <Loggers>
     	
@@ -44,7 +50,7 @@
         <AsyncLogger name="Tracking" level="WARN"/>
         
         <AsyncRoot level="INFO">
-            <AppenderRef ref="file" />
+            <AppenderRef ref="console" />
         </AsyncRoot>
     </Loggers>
 </Configuration>

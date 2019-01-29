@@ -1,7 +1,7 @@
 Mulesoft Kernel 4 Community Edition - by Vertigo
 =====
 
-Esta imagem define um runtime mínimo do Mule Kernel, já contendo um endpoint "hello" publicado em `/opt/mule/apps`.
+Esta imagem define um runtime mínimo do Mule Kernel, já contendo um endpoint "/api/hello" publicado em `/opt/mule/apps`.
 
 Este endpoint será considerado um healthcheck do container/pod.
 
