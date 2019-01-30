@@ -11,6 +11,8 @@ RUN mkdir -p /opt && \
 
 #COPY --from=build /opt/hello.zip ${MULE_HOME}/apps
 
+COPY ./target/hello-mule3-docker-1.0.0-SNAPSHOT.zip /opt/mule/apps/
+
 # Define mount points.
 VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_HOME}/domains"]
 
