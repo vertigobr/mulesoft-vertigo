@@ -9,7 +9,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config"   host="0.0.0.0" port="8081" />
 	<flow name="say-hello-mule3-dockerFlow"  >
         <http:listener config-ref="HTTP_Listener_config" path="/hello" doc:name="HTTP"/>
-		<set-payload value="#['Hello from Mule ESB (Version: ' + mule.version + '). This container is healthy.']" doc:name="Set Payload"  mimeType="text/plain"/>
+		<set-payload value="#['Hello from Mule Kernel (Version: ' + mule.version + '). This container is healthy.']" doc:name="Set Payload"  mimeType="text/plain"/>
 	</flow>
 	<flow name="upload-file-Flow">
         <http:listener config-ref="HTTP_Listener_config" path="/upload" allowedMethods="POST" doc:name="HTTP"/>
