@@ -1,4 +1,4 @@
-Mulesoft Kernel 4 Community Edition - by Vertigo
+Mulesoft Kernel 3 Community Edition - by Vertigo
 =====
 
 Esta imagem define um runtime mínimo do Mule Kernel, já contendo um endpoint "hello" publicado em `/opt/mule/apps`.
