@@ -16,3 +16,4 @@ services:
       - ./src/main/domain:/opt/mule/domains/default
       - ./src/main/app:/opt/mule/apps/app
       - ./target/classes:/opt/mule/apps/app/classes
+
