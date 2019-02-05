@@ -12,12 +12,14 @@ FROM openjdk:8u171-jdk
 
 ENV MULE_HOME /opt/mule
 ENV TZ America/Sao_Paulo
+#ENV MULE_VERSION=3.8.1
+ENV MULE_VERSION=3.9.0
 
 RUN mkdir -p /opt && \
-    wget -q https://repository-master.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/3.8.1/mule-standalone-3.8.1.tar.gz && \
-    tar -xf mule-standalone-3.8.1.tar.gz && \
-    mv mule-standalone-3.8.1 /opt && \
-    mv /opt/mule-standalone-3.8.1 /opt/mule
+    wget -q https://repository-master.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/$MULE_VERSION/mule-standalone-$MULE_VERSION.tar.gz && \
+    tar -xf mule-standalone-$MULE_VERSION.tar.gz && \
+    mv mule-standalone-$MULE_VERSION /opt && \
+    mv /opt/mule-standalone-$MULE_VERSION /opt/mule
 
 COPY --from=build /opt/hello.zip ${MULE_HOME}/apps
 COPY src/main/domain/mule-* ${MULE_HOME}/domains/default/
