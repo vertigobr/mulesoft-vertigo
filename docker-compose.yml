@@ -6,12 +6,13 @@ version: '3'
 services:
 
   mule-esb:
-#    image: vertigo/mule
+#    image: vertigo/mule:3
     build:
       context: .
       dockerfile: Dockerfile-java
     ports:
       - 8081:8081 
     volumes:
-      - ./target/hello-mule3-docker-1.0.0-SNAPSHOT.zip:/opt/mule/apps/hello.zip
-    
+      - ./src/main/domain:/opt/mule/domains/default
+      - ./src/main/app:/opt/mule/apps/app
+      - ./target/classes:/opt/mule/apps/app/classes

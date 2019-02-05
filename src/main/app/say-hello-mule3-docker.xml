@@ -5,9 +5,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd">
+	<!--
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config"   host="0.0.0.0" port="8081" />
+	-->
 	<flow name="say-hello-mule3-dockerFlow"  >
-        <http:listener config-ref="HTTP_Listener_config" path="/hello" doc:name="HTTP"/>
-		<set-payload value="#['Hello from Mule ESB (Version: ' + mule.version + '). This container is healthy.']" doc:name="Set Payload"  mimeType="text/plain"/>
+        <http:listener config-ref="HTTP_Default_Listener" path="/hello" doc:name="HTTP"/>
+		<set-payload value="#['Hello from Mule Kernel (Version: ' + mule.version + '). This container is healthy.']" doc:name="Set Payload"  mimeType="text/plain"/>
 	</flow>
 </mule>

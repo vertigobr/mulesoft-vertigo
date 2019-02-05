@@ -20,6 +20,7 @@ RUN mkdir -p /opt && \
     mv /opt/mule-standalone-3.8.1 /opt/mule
 
 COPY --from=build /opt/hello.zip ${MULE_HOME}/apps
+COPY src/main/domain/mule-* ${MULE_HOME}/domains/default/
 
 # Define mount points.
 VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_HOME}/domains"]
