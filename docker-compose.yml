@@ -10,6 +10,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-java
+    command: /opt/mule/bin/mule -Dmule.verbose.exceptions=true
     ports:
       - 8081:8081 
     volumes:
