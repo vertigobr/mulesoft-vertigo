@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="upload-fileFlow" doc:id="78c72e81-ffa5-42cf-9a6c-c02177f959df" >
+		<http:listener doc:name="HTTP_Listener_config" doc:id="bdfb6072-85ea-49c5-b29e-40c9b45a4768" path="/upload" config-ref="HTTP_Listener_Configuration" allowedMethods="POST"/>
+		<file:write doc:name="Write" doc:id="1f3b09a0-07a3-480d-9c4c-e60e1d1b964d" path="#[attributes.headers.topath ++ '\\' ++ attributes.headers.name]"/>
+	
+</flow>
+	
+	</mule>
