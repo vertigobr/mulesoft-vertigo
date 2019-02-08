@@ -1,12 +1,22 @@
 FROM maven as build
 
-ADD pom.xml /opt
-ADD mule-artifact.json /opt
-ADD src /opt/src
+RUN mkdir -p /opt/domain/src
+ADD src/main/domain/src /opt/domain/src
+ADD src/main/domain/mule-project.xml /opt/domain/
+ADD src/main/domain/pom.xml /opt/domain/
 
-WORKDIR /opt
-RUN mvn package
-RUN cp ./target/say-hello-*.jar say-hello.jar
+
+
+WORKDIR /opt/domain 
+
+RUN mvn package --debug
+#RUN mv ./target/*.jar 
+
+
+#WORKDIR /opt
+#RUN mvn package
+#RUN cp ./target/say-hello-*.jar say-hello.jar
+
 
 FROM openjdk:8u171-jdk
 
@@ -19,7 +29,8 @@ RUN mkdir -p /opt && \
     mv mule-standalone-4.1.1 /opt && \
     mv /opt/mule-standalone-4.1.1 /opt/mule
 
-COPY --from=build /opt/say-hello.jar ${MULE_HOME}/apps
+COPY --from=build ./target/*.jar ${MULE_HOME}/domains
+#COPY --from=build /opt/say-hello.jar ${MULE_HOME}/apps
 
 # Define mount points.
 VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_HOME}/domains"]
@@ -28,8 +39,8 @@ VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_H
 WORKDIR ${MULE_HOME}
 
 # "say-hello" endpoint
-EXPOSE 8081
+#EXPOSE 8081
 
-HEALTHCHECK CMD curl --fail http://localhost:8081/hello || exit 1 
+#HEALTHCHECK CMD curl --fail http://localhost:8081/hello || exit 1 
 
-CMD /opt/mule/bin/mule
+#CMD /opt/mule/bin/mule

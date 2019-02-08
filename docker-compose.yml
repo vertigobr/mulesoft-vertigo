@@ -9,8 +9,13 @@ services:
 #    image: vertigo/mule
     build:
       context: .
+#      dockerfile: Dockerfile-java
     ports:
       - 8081:8081
 #    volumes:
-#      - ./apps:/opt/mule/apps
-    
+#      - ./src/main/domain:/opt/mule/domains/mule-domain
+#      - ./src/main/mule:/opt/mule/apps/app
+#      - ./target/classes:/opt/mule/apps/app/classes
+#      - ./mule-artifact.json:/opt/mule/apps/app/META-INF/mule-artifact/mule-artifact.json
+#      - ./pom.xml:/opt/mule/pom.xml
+
