@@ -41,7 +41,6 @@
             <groupId>com.mycompany</groupId>
             <artifactId>mule-domain</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <classifier>mule-domain</classifier>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -61,7 +60,7 @@
         </repository>
 		<repository>
 			<id>lib</id>
-			<url>file://opt/lib/com/mycompany/mule-domain/1.0.0-SNAPSHOT/</url>
+			<url>file://~/.m2/repository/</url>
       	</repository>
     </repositories>
     <pluginRepositories>
