@@ -2,24 +2,27 @@ FROM maven as build
 
 RUN mkdir -p /opt/default/src
 ADD src/main/domain/src /opt/default/src
-ADD src/main/domain/mule-project.xml /opt/default/
+ADD src/main/domain/mule-artifact.json /opt/default/
 ADD src/main/domain/pom.xml /opt/default/
 
 
 
 WORKDIR /opt/default 
 
-RUN mvn package --debug
-RUN mv ./target/mule-domain-*.jar ./target/default.jar
-RUN ls /opt/default/target 
-#RUN mv ./target/*.jar  
+RUN mvn package
+RUN ls target/
+RUN mvn install:install-file -Dfile=target/mule-domain-1.0.0-SNAPSHOT-mule-domain.jar -DgroupId=com.mycompany -DartifactId=mule-domain -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -DlocalRepositoryPath=/opt/lib 
+RUN ls /opt/lib/com/mycompany/mule-domain/1.0.0-SNAPSHOT/
+#RUN mv ./target/mule-domain-*.jar ./target/default.jar
 
 RUN mkdir -p /opt/hello/src/main/mule
 ADD src/main/mule /opt/hello/src/main/mule
 ADD src/main/mule/mule-artifact.json /opt/hello/
 ADD src/main/mule/pom.xml /opt/hello/
 
+
 WORKDIR /opt/hello
+
 RUN mvn package
 RUN mv ./target/say-hello-*.jar ./target/say-hello.jar
 
