@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-	<flow name="say-hello-mule4-dockerFlow" doc:id="e26ba8c6-c2e3-4d3a-ace2-b768af0e060d" >
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+xmlns:http="http://www.mulesoft.org/schema/mule/http" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+	<flow name="say-hello-mule4-dockerFlow" doc:id="e26ba8c6-c2e3-4d3a-ace2-b768af0e060d">
 		<http:listener doc:name="Listener" doc:id="f246611a-c6c0-4bc4-98da-dd1a3aa65ab4" config-ref="HTTP_Listener_Configuration" path="hello"/>
 		<set-payload value="#['Hello from Mule ESB (Version: ' ++ mule.version ++ '). This container is healthy.']" doc:name="Set Payload" doc:id="dfbc0352-3c81-4a2a-a14b-01441e81a758" mimeType="text/plain"/>
 	</flow>
